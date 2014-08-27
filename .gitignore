@@ -24,3 +24,5 @@ public/assets
 
 #ignore emacs temp files
 *~
+
+README.rdoc
