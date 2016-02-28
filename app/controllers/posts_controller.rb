@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   def update
     post = Post.find id_params
     if post.update_attributes post_params
-      redirect_to posts_path, :notice => 'Your task has successfully been updated'
+      redirect_to posts_path, :notice => 'Your post has successfully been updated'
     else
       redirect_to :back, :notice => 'There was an error updating your post.'
     end

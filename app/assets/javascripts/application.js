@@ -16,4 +16,11 @@
 //= require_tree .
 // Loads all Bootstrap javascripts
 //= require bootstrap
-var app = angular.module("moeriism", ["blog"]);
+var app = angular.module("moeriism", []);
+angular.module('moeriism', []).config(function($sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist([
+	// Allow same origin resource loads.
+	'self',
+	// Allow loading from our assets domain.  Notice the difference between * and **.
+	'http://localhost:*/**']);
+})
