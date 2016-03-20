@@ -1,8 +1,7 @@
 == README
 
-Currently this is a simple blog with login. 
+Currently this is a simple blog with login. One interesting part is that it is using a microservice-like architecture. There is an nginx server sitting in front of 3 application servers. The nginx-server acts as a reverse proxy to keep all of the URLS pointing to moeriism. The application servers are responsible for the blog, the navbar at the top of the screen and login. Currently these applications are not communicating, so logging in does not give any different privileges.
 
-Next version: Microservice-like architecture
-Challenges: Authentication and managing sessions over multiple microservices.
+Next release: prettying things up with Angularjs
 
 Website: http://moeriism.herokuapp.com/
