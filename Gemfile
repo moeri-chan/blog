@@ -65,4 +65,4 @@ gem 'bson_ext'
 gem 'rails_12factor', group: :production
 
 ruby "2.2.1"
-gem 'devise'
+
