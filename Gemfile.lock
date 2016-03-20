@@ -246,7 +246,6 @@ DEPENDENCIES
   bower-rails
   bson_ext
   capybara
-  coffee-rails
   cucumber
   execjs
   guard-rspec
