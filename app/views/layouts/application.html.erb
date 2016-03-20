@@ -7,10 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%=render :partial => 'layouts/navbar' %>
-<% flash.each do |name, message| %>
+  <ng-include src="'navigation/navbars'"></ng-include>
+  <% flash.each do |name, message| %>
   <%= content_tag :div, message, :id => "flash_#{name}" %>
-<% end %>
+  <% end %>
   <%= yield %>
 
 </body>
