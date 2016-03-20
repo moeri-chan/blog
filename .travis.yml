@@ -8,5 +8,5 @@ sudo: false
 deploy:
   provider: heroku
   api_key: "eb6b1d5f-2db7-4b46-92ba-82bbb447c2a2"
-  app: moeriism
+  app: moeri-blog
   on: heroku-mongoid
