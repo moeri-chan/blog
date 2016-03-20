@@ -1,9 +1,11 @@
 Blog::Application.routes.draw do
-  get "posts/index"
+  scope '/blog' do
+    get "posts/index"
 
-  resources :posts
+    resources :posts
 
-  root 'posts#index'
+    root 'posts#index'
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
