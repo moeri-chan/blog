@@ -5,5 +5,4 @@ services:
   - mongodb
 branches:
   only:
-    - master
     - heroku-mongoid
