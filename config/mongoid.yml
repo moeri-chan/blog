@@ -10,7 +10,7 @@ development:
       # of host:port pairs. (required)
       #hosts:
       #  - localhost:27017
-      uri: mongodb://blog:test_blog@ds041673.mongolab.com:41673/blog
+      uri:   mongodb://moeri_qa:test_blog@ds019950.mlab.com:19950/moeri-qa
       options:
         # Change the default write concern. (default = { w: 1 })
         # write:
@@ -127,7 +127,7 @@ development:
 test:
   clients:
     default:
-      uri: mongodb://blog:test_blog@ds041673.mongolab.com:41673/blog
+      uri: mongodb://moeri_qa:test_blog@ds019950.mlab.com:19950/moeri-qa
       options:
         max_pool_size: 1
 production:
