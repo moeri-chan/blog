@@ -13,8 +13,17 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
+module RackMethods
+  include Rack::Test::Methods
+  
+  def app
+    Rails.application
+  end
+end
+
 RSpec.configure do |config|
   config.include Rails.application.routes.url_helpers
+  config.include RackMethods, :type=>:controller
   config.before :each do
   Mongoid.purge!
   config.include Capybara::DSL
