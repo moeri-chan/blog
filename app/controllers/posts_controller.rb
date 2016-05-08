@@ -1,12 +1,16 @@
 class PostsController < ApplicationController
   def index
-    @post=Post.new
-    @posts = Post.all
+    @post = Post.new
+    @posts = Post.all.reverse
+    respond_to do |format|
+      format.json { render json: @posts }
+      format.html { render :index }
+    end
   end
   
   def create
-    Post.create post_params
-    redirect_to :back
+    post=Post.create post_params
+    render status: :ok, json: post.to_json
   end
 
   def edit
@@ -16,15 +20,15 @@ class PostsController < ApplicationController
   def update
     post = Post.find id_params
     if post.update_attributes post_params
-      redirect_to posts_path, :notice => 'Your post has successfully been updated'
+      render status: :ok, json: post.to_json
     else
-      redirect_to :back, :notice => 'There was an error updating your post.'
+      render status: :internal_server_error, json: post.to_json
     end
   end
 
   def destroy
-    Post.find(id_params).destroy
-    redirect_to :back, :notice => 'Post has been deleted.' 
+    post=Post.find(id_params).destroy
+    render status: :ok, json: post.to_json 
   end
 
   def post_params

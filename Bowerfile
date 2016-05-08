@@ -2,4 +2,5 @@ asset 'angular'
 asset 'bootstrap-sass-official'
 asset 'oclazyload'
 asset 'angular-ui-router'
+asset 'angular-resource'
 # vim: ft=ruby
