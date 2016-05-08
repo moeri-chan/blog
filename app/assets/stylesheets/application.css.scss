@@ -18,16 +18,19 @@ $nav-link-hover-bg: #ff69b4;
 
 $nav-link-color: #000000;
 $nav-link-hover-color: #000000;
+$color: #000000;
 
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap/theme";
 
-.navbar .nav > li > a 
-{
-    color:  $nav-link-color;    
+textarea:focus, input:focus, .uneditable-input:focus {   
+    border-color: rgba(255, 150, 202, 0.8) !important;
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6) !important;
+    outline: 0 none !important;
 }
-.navbar .nav > li:hover > a 
-{
-    color:  $nav-link-hover-color;    
+
+.btn-primary {
+    @include button-variant(black,#ff96ca,#ff69b4);
+    background-image: none;
 }

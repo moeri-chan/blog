@@ -20,9 +20,9 @@ class PostsController < ApplicationController
   def update
     post = Post.find id_params
     if post.update_attributes post_params
-      redirect_to posts_path, :notice => 'Your post has successfully been updated'
+      render status: :ok, json: post.to_json
     else
-      redirect_to :back, :notice => 'There was an error updating your post.'
+      render status: :internal_server_error, json: post.to_json
     end
   end
 

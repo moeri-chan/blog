@@ -7,7 +7,7 @@
   <!--  Post Form -->
   <h4>Submit a Post</h4>
   <fieldset class="form-group">
-    <input ng-model="posts.new_post.title" type="test" class="form-control" placeholder="Hello World!" title="Title" />
+    <input ng-model="posts.new_post.title" type="test" class="form-control" placeholder="Your Title" title="Title" />
   </fieldset>
   <fieldset class="form-group">
     <textarea ng-model="posts.new_post.content" class="form-control" placeholder="Your text here..." title="Content"></textarea>
@@ -17,27 +17,18 @@
   </fieldset>
 
   <!--  Live Preview -->
-  <blockquote >
+  <blockquote ng-show="posts.new_post.title || posts.new_post.content">
     <h3>{{posts.new_post.title}}</h3>
     {{posts.new_post.content}}
   </blockquote>
 </form>
 
 <div ng-repeat="post in posts.post_list" >
-  <blockquote >
-    <h3>{{post.title}} <a class="glyphicon glyphicon-trash btn btn-sm" ng-click="posts.delete_post(post)"></a></h3>
-    {{post.content}}
+  <blockquote ng-controler="clickToEditPostCtrl as edit_post">
+    <div ng-hide="edit_post.editor_enabled">
+      <h3>{{post.title}}
+	<button class="glyphicon glyphicon-trash btn btn-default btn-sm" ng-click="posts.delete_post(post)"></button></h3>
+      {{post.content}}
+    </div>
   </blockquote> 
-</div>
-<%=render 'post_form' %>
-<script>
-</script>
-<ul>
-  <% for post in @posts %>
-  <li id="post_<%= post.id %>"><%= post.title %>
-    | <%= link_to 'Edit', edit_post_path(post) %>
-    | <%= link_to 'Delete', post, :method => 'delete' %>
-  </li>
-  <% end %>
-</ul>
 </div>
