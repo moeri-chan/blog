@@ -1,8 +1,9 @@
+
 var posts= angular.module("posts", []); 
 posts.controller("postsCtrl", ['$http','$log',function($http, $log) {
     var postCtrl = this
     postCtrl.$log = $log
-    $http.get("posts", {
+    $http.get("/blog/posts", {
         headers: {'Accept': 'application/json'}
     }).then(
         function successCallback(response){
@@ -15,7 +16,7 @@ posts.controller("postsCtrl", ['$http','$log',function($http, $log) {
     
     postCtrl.new_post = {};
     postCtrl.create_post = function() {
-	$http.post('posts', postCtrl.new_post,{
+	$http.post('/blog/posts', postCtrl.new_post,{
             headers: {'Accept': 'application/json',
 		      'Content-Type': 'application/json'
 		     }
@@ -30,7 +31,7 @@ posts.controller("postsCtrl", ['$http','$log',function($http, $log) {
 	)
     }
     postCtrl.delete_post = function(post) {
-	$http.delete('posts/'.concat(post._id.$oid ),{
+	$http.delete('/blog/posts/'.concat(post._id.$oid ),{
             headers: {'Accept': 'application/json',
 		      'Content-Type': 'application/json'
 		     }
@@ -44,7 +45,7 @@ posts.controller("postsCtrl", ['$http','$log',function($http, $log) {
 	)
     }
     postCtrl.update_post = function(post) {
-	$http.put('posts/'.concat(post._id.$oid ),{
+	$http.put('/blog/posts/'.concat(post._id.$oid ),{
             headers: {'Accept': 'application/json',
 		      'Content-Type': 'application/json'
 
