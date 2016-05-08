@@ -18,13 +18,16 @@
 
   <!--  Live Preview -->
   <blockquote >
-    <strong>{{posts.new_post.title}}</strong>
+    <h3>{{posts.new_post.title}}</h3>
     {{posts.new_post.content}}
   </blockquote>
 </form>
 
 <div ng-repeat="post in posts.post_list" >
-{{post._id}} | {{post.title}} | {{post.content}} 
+  <blockquote >
+    <h3>{{post.title}} <a class="glyphicon glyphicon-trash btn btn-sm" ng-click="posts.delete_post(post)"></a></h3>
+    {{post.content}}
+  </blockquote> 
 </div>
 <%=render 'post_form' %>
 <script>

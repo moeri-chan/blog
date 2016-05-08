@@ -27,8 +27,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    Post.find(id_params).destroy
-    redirect_to :back, :notice => 'Post has been deleted.' 
+    post=Post.find(id_params).destroy
+    render status: :ok, json: post.to_json 
   end
 
   def post_params
