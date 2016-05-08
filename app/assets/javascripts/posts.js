@@ -1,5 +1,5 @@
 var posts= angular.module("posts", []); 
-posts.controller("postsCtrl", function($http, $log) {
+posts.controller("postsCtrl", ['$http','$log',function($http, $log) {
     var postCtrl = this
     postCtrl.$log = $log
     $http.get("posts", {
@@ -59,4 +59,4 @@ posts.controller("postsCtrl", function($http, $log) {
             }
 	)
     }
-});
+}]);
